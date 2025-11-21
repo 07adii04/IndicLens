@@ -1,38 +1,42 @@
+# 🛣️ IndicLens
 
----
+> **Bridging the gap between Indian scripts and global travelers.**
 
-```markdown
-# 🛣️ IndicLens: Bridging the gap between Indian scripts and global travelers.
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=for-the-badge&logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)
+![EasyOCR](https://img.shields.io/badge/EasyOCR-PyTorch-orange?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
+
+**IndicLens** is an open-source web application designed to detect and transliterate multilingual **Indian street signboards** into user-selected Indic scripts.
+
+Built using **Streamlit**, **EasyOCR**, and **Indic-Transliteration**, this tool demonstrates how AI and NLP can bridge linguistic barriers across India’s diverse language landscape.
+
+![Project Demo](https://via.placeholder.com/800x400.png?text=Add+Your+App+Screenshot+Here)
+*(Please replace the link above with an actual screenshot of your app)*
 
 ---
 
 ## 📘 Overview
 
-The **IndicLens** is an open-source web application designed to detect and transliterate multilingual **Indian street signboards** into user-selected Indic scripts.
+India is a land of many scripts. A traveler from Tamil Nadu visiting Uttar Pradesh might understand Hindi *spoken* words but cannot read the Devanagari *script*.
 
-Built using **Streamlit**, **EasyOCR**, and **Indic-Transliteration**, this tool demonstrates how AI and NLP can bridge linguistic barriers across India’s diverse language landscape.
+**IndicLens** solves this by focusing on **Transliteration** (Script Conversion) rather than just Translation. It allows users to read street signs in their own familiar script, making navigation easier and more accessible.
 
 ---
 
 ## 🧠 Features
 
-✅ **Multilingual OCR**  
-- Detects and reads text in **English**, **Hindi**, **Tamil**, and **Telugu** using EasyOCR.
+✅ **Multilingual OCR** Detects and reads text in **English**, **Hindi**, **Tamil**, and **Telugu** using EasyOCR.
 
-✅ **Intelligent Transliteration**  
-- Automatically identifies the script and transliterates only Indic lines into your chosen target script.
+✅ **Intelligent Transliteration** Automatically identifies the script and transliterates only Indic lines into your chosen target script (e.g., converts Hindi text to Telugu script).
 
-✅ **Fast & Optimized**  
-- Uses `st.cache_resource` to cache OCR models and prevent memory crashes or reload delays.
+✅ **Fast & Optimized** Uses `st.cache_resource` to cache OCR models and prevent memory crashes or reload delays.
 
-✅ **User-Friendly Streamlit UI**  
-- Upload or test with a sample image.
+✅ **User-Friendly Streamlit UI** - Upload or test with a sample image.
 - Choose your target script.
 - Instantly view and copy the transliterated output.
 
-✅ **Deployment-Ready**  
-- Lightweight dependencies.
-- Fully compatible with **Streamlit Cloud** and **Hugging Face Spaces**.
+✅ **Deployment-Ready** Lightweight dependencies, fully compatible with **Streamlit Cloud** and **Hugging Face Spaces**.
 
 ---
 
@@ -40,169 +44,147 @@ Built using **Streamlit**, **EasyOCR**, and **Indic-Transliteration**, this tool
 
 | Component | Technology Used |
 |------------|-----------------|
-| **Frontend** | Streamlit |
-| **OCR Engine** | EasyOCR (with PyTorch backend) |
-| **Transliteration** | Indic-Transliteration |
+| **Frontend** | Streamlit (Python) |
+| **OCR Engine** | EasyOCR (PyTorch backend) |
+| **Transliteration** | Indic-Transliteration Library |
 | **Image Processing** | Pillow (PIL) |
-| **Languages Supported** | English, Hindi, Tamil, Telugu |
+| **Supported Scripts** | English, Hindi, Tamil, Telugu |
 
 ---
 
 ## 🧩 How It Works
 
-1. **Upload a street sign image** (or use the built-in example).  
-2. The app runs **EasyOCR** to extract all visible text.  
-3. A logic filter detects which lines are in Indic scripts.  
-4. These lines are **transliterated** into your selected script (e.g., Tamil → Devanagari).  
-5. The output text is displayed with a **copy-to-clipboard** button.
+1. **Upload:** User uploads a street sign image (or uses the example).
+2. **Extraction:** The app runs **EasyOCR** to extract all visible text.
+3. **Filtering:** A logic layer detects which text lines are in Indic scripts.
+4. **Conversion:** These lines are **transliterated** into the user's selected script.
+5. **Output:** The text is displayed ready for reading or copying.
 
 ---
 
 ## 🧠 Architecture
 
-```
+```mermaid
+graph TD
+    A[User Uploads Image] --> B(Preprocessing / PIL)
+    B --> C{EasyOCR Engine}
+    C -->|Raw Text| D[Script Detection Logic]
+    D -->|English Text| E[Keep As Is]
+    D -->|Indic Text| F[Indic-Transliteration Engine]
+    F -->|Target Script| G[Final Output Display]
+    E --> G
+Here is your final, polished README.md.
 
-┌────────────────────┐
-│   User Uploads     │
-│   Image (JPG/PNG)  │
-└────────┬───────────┘
-│
-▼
-┌────────────────────┐
-│   EasyOCR Engine    │
-│  (Text Extraction)  │
-└────────┬───────────┘
-│
-▼
-┌────────────────────┐
-│  Script Detection   │
-│ (Indic vs English)  │
-└────────┬───────────┘
-│
-▼
-┌────────────────────┐
-│ Indic-Transliteration│
-│   (Target Script)    │
-└────────┬───────────┘
-│
-▼
-┌────────────────────┐
-│ Streamlit Interface │
-│ (Display + Copy)    │
-└────────────────────┘
+I have formatted it with professional badges, a proper structure, the architecture diagram, and your GitHub profile links already embedded based on your username (07adii04).
 
-````
+Just copy the code block below and paste it into your repository's README.md file.
 
----
+Markdown
 
-## 🧮 Example Output
+# 🛣️ IndicLens
 
-| Input Sign | Extracted Text | Transliterated Text |
-|-------------|----------------|---------------------|
-| देवनागरी स्ट्रीट | देवनागरी स्ट्रीट | devanāgarī strīṭ |
-| தமிழ்நாடு | தமிழ்நாடு | tamilnāḍu |
-| తెలుగు వీధి | తెలుగు వీధి | telugu vīdhi |
+> **Bridging the gap between Indian scripts and global travelers.**
+
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=for-the-badge&logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)
+![EasyOCR](https://img.shields.io/badge/EasyOCR-PyTorch-orange?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
+
+**IndicLens** is an open-source web application designed to detect and transliterate multilingual **Indian street signboards** into user-selected Indic scripts.
+
+Built using **Streamlit**, **EasyOCR**, and **Indic-Transliteration**, this tool demonstrates how AI and NLP can bridge linguistic barriers across India’s diverse language landscape.
+
+![Project Demo](https://via.placeholder.com/800x400.png?text=Add+Your+App+Screenshot+Here)
+*(Please replace the link above with an actual screenshot of your app)*
 
 ---
 
-## 💻 Run Locally
+## 📘 Overview
 
-Clone the repository and run the app:
+India is a land of many scripts. A traveler from Tamil Nadu visiting Uttar Pradesh might understand Hindi *spoken* words but cannot read the Devanagari *script*.
 
-```bash
-git clone https://github.com/07adii04/IndicLens
+**IndicLens** solves this by focusing on **Transliteration** (Script Conversion) rather than just Translation. It allows users to read street signs in their own familiar script, making navigation easier and more accessible.
+
+---
+
+## 🧠 Features
+
+✅ **Multilingual OCR** Detects and reads text in **English**, **Hindi**, **Tamil**, and **Telugu** using EasyOCR.
+
+✅ **Intelligent Transliteration** Automatically identifies the script and transliterates only Indic lines into your chosen target script (e.g., converts Hindi text to Telugu script).
+
+✅ **Fast & Optimized** Uses `st.cache_resource` to cache OCR models and prevent memory crashes or reload delays.
+
+✅ **User-Friendly Streamlit UI** - Upload or test with a sample image.
+- Choose your target script.
+- Instantly view and copy the transliterated output.
+
+✅ **Deployment-Ready** Lightweight dependencies, fully compatible with **Streamlit Cloud** and **Hugging Face Spaces**.
+
+---
+
+## ⚙️ Tech Stack
+
+| Component | Technology Used |
+|------------|-----------------|
+| **Frontend** | Streamlit (Python) |
+| **OCR Engine** | EasyOCR (PyTorch backend) |
+| **Transliteration** | Indic-Transliteration Library |
+| **Image Processing** | Pillow (PIL) |
+| **Supported Scripts** | English, Hindi, Tamil, Telugu |
+
+---
+
+## 🧩 How It Works
+
+1. **Upload:** User uploads a street sign image (or uses the example).
+2. **Extraction:** The app runs **EasyOCR** to extract all visible text.
+3. **Filtering:** A logic layer detects which text lines are in Indic scripts.
+4. **Conversion:** These lines are **transliterated** into the user's selected script.
+5. **Output:** The text is displayed ready for reading or copying.
+
+---
+
+## 🧠 Architecture
+
+```mermaid
+graph TD
+    A[User Uploads Image] --> B(Preprocessing / PIL)
+    B --> C{EasyOCR Engine}
+    C -->|Raw Text| D[Script Detection Logic]
+    D -->|English Text| E[Keep As Is]
+    D -->|Indic Text| F[Indic-Transliteration Engine]
+    F -->|Target Script| G[Final Output Display]
+    E --> G
+🔮 Future Scope
+Integration with Bhashini-IITJ: Planning to integrate specialized IndicPhotoOCR models to improve accuracy on curved and blurry text.
+
+Real-time Video: Implementing live camera feed processing for mobile users.
+
+Voice Output: Adding Text-to-Speech (TTS) so users can hear the pronunciation.
+📦 Installation & Setup
+Want to run this locally? Follow these steps:
+
+Clone the repository
+
+Bash
+----------------------------------------------------------------------------------------------
+git clone [https://github.com/07adii04/IndicLens.git](https://github.com/07adii04/IndicLens.git)
 cd IndicLens
+Install dependencies
+------------------------------------------------------------------------------------------------
+Bash
+----------------------------------------------------------------------------------------------
 pip install -r requirements.txt
+Run the app
+
+Bash
+-----------------------------------------------------------------------------------------------
 streamlit run app.py
-````
+------------------------------------------------------------------------------------------------
+👨‍💻 Author
+Aditya aiml student @ MIPS
 
-Then open the app in your browser at:
-👉 **[http://localhost:8501](http://localhost:8501)**
+(https://www.linkedin.com/in/aditya-tiwari-b2866a333/)
 
----
-
-## 🧩 Project Structure
-
-```
-IndicLens/
-│
-├── app.py                        # Streamlit web interface
-├── requirements.txt               # Dependencies
-│
-├── src/
-│   └── transliterator.py          # OCR + Transliteration logic
-│
-├── assets/
-│   └── sample_sign.jpg            # Optional local test image
-│
-└── .streamlit/
-    └── config.toml                # UI theme settings
-```
-
----
-
-## 🌐 Deployment
-
-This project can be deployed easily on:
-
-* [Streamlit Cloud](https://share.streamlit.io/)
-* [Hugging Face Spaces](https://huggingface.co/spaces)
-* [Render](https://render.com)
-
-### Streamlit Cloud Steps
-
-1. Push your code to GitHub.
-2. Go to [Streamlit Cloud](https://share.streamlit.io/).
-3. Click **“New App” → Select your repo → Main file = `app.py`**.
-4. Deploy and get your public link! 🌍
-
----
-
-## 🧰 Dependencies
-
-```
-streamlit==1.38.0
-easyocr==1.7.2
-Pillow==10.4.0
-indic-transliteration==2.4.0
-streamlit-copy-button==0.3.3
-requests==2.31.0
-torch==2.3.0
-torchvision==0.18.0
-```
-
----
-
-## 📜 License
-
-This project is open-source under the **MIT License**.
-You are free to use, modify, and distribute it with attribution.
-
----
-
-## 👨‍💻 Author
-
-**Aditya Tiwari**
-📍 *India*
-💼 *Smart India Hackathon 2025 Participant*
-🚀 *Focus Areas: AI, Cybersecurity, and Applied Machine Learning*
-
-🔗 [GitHub Profile](https://github.com/07adii04)
-🔗 [LinkedIn Profile](https://www.linkedin.com/in/aditya-tiwari-b2866a333/)
-
----
-
-## 🏁 Status
-
-✅ Stable & Optimized
-🧩 Ready for Deployment
-📦 Ideal for Resume & Portfolio Showcase
-
-> “Bridging India’s languages, one signboard at a time.” 🇮🇳
-
-```
-
----
-
-
-```
+⭐ Star this repo if you find it useful!
