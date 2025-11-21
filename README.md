@@ -1,18 +1,14 @@
-Here’s your **final, professional README.md** — fully formatted for GitHub and optimized for showcasing in your resume or portfolio 🌟
-
-It highlights your **technical depth**, **project purpose (SIH 25155)**, and **deployability**, making it stand out for recruiters or hackathon judges.
 
 ---
 
 ```markdown
-# 🛣️ Street Sign Transliteration Tool  
-*A Smart India Hackathon 2025 Project — Problem Statement #25155*
+# 🛣️ IndicLens: Bridging the gap between Indian scripts and global travelers.
 
 ---
 
 ## 📘 Overview
 
-The **Street Sign Transliteration Tool** is an open-source web application designed to detect and transliterate multilingual **Indian street signboards** into user-selected Indic scripts.
+The **IndicLens** is an open-source web application designed to detect and transliterate multilingual **Indian street signboards** into user-selected Indic scripts.
 
 Built using **Streamlit**, **EasyOCR**, and **Indic-Transliteration**, this tool demonstrates how AI and NLP can bridge linguistic barriers across India’s diverse language landscape.
 
@@ -114,8 +110,8 @@ Built using **Streamlit**, **EasyOCR**, and **Indic-Transliteration**, this tool
 Clone the repository and run the app:
 
 ```bash
-git clone https://github.com/07adii04/SIH-StreetSign-Transliteration-25155
-cd StreetSign-Transliteration
+git clone https://github.com/07adii04/IndicLens
+cd IndicLens
 pip install -r requirements.txt
 streamlit run app.py
 ````
@@ -128,7 +124,7 @@ Then open the app in your browser at:
 ## 🧩 Project Structure
 
 ```
-StreetSign-Transliteration/
+IndicLens/
 │
 ├── app.py                        # Streamlit web interface
 ├── requirements.txt               # Dependencies
