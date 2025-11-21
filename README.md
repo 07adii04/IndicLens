@@ -74,6 +74,8 @@ graph TD
     D -->|Indic Text| F[Indic-Transliteration Engine]
     F -->|Target Script| G[Final Output Display]
     E --> G
+```
+
 🔮 Future Scope
 Integration with Bhashini-IITJ: Planning to integrate specialized IndicPhotoOCR models to improve accuracy on curved and blurry text.
 
